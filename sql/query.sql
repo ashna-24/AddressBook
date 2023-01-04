@@ -1,4 +1,9 @@
 use query;
 
-create table addressBook(Username varchar(20)
-                        Password varchar(20));
+create table register(FullName varchar(30),
+					  EmailID varchar(30),
+					  UserName varchar(30),
+					  Password varchar(30),
+					  ConfirmPassword varchar(30));
+
+select * from register
