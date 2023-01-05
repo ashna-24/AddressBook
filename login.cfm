@@ -15,13 +15,13 @@
                         <img src="aassets/book.png">
                     </div>
                     <div class="form_login">
-                        <p class="logintext">LOGIN</p>
+                        <p class="logintext color">LOGIN</p>
                         <form action="" method="post" name="myform" class="myform" onsubmit="return validateform()">
                             <input type="text" name="uname" class="text" placeholder="Username" id="uname" onblur="validateform()"><br>
-                            <span id="uname_error">Please fill this field!</span>
+                            <span id="uname_error" class="error">Please fill this field!</span>
                             <input type="password" name="password" class="text" placeholder="Password" id="pswd" onblur="validateform()"><br>
-                            <span id="pswd_error">Please fill this field!</span>
-                            <input type="submit" value="LOGIN" name="submit" class="submit">
+                            <span id="pswd_error" class="error">Please fill this field!</span>
+                            <input type="submit" value="LOGIN" name="submit" class="submit color">
                         </form>
                         <cfif structKeyExists(form,'submit')>
                             <cfinvoke method="getlogin" component="components/login">
@@ -37,6 +37,6 @@
                 </div>
             </div>
         </cfoutput>
-        <script src="js/addbook.js"></script>     
+        <script src="js/addressbook.js"></script>     
     </body>
 </html>

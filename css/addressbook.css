@@ -8,6 +8,10 @@ body{
     font-family: sans-serif;
 }
 
+.color{
+    color: #0088cc;
+}
+
 .flex{
     display: flex;
 }
@@ -89,7 +93,6 @@ body{
 
 .logintext{
     padding: 20px;
-    color: #0088cc;
     font-size: 20px;
     text-align: center;
 }
@@ -107,7 +110,6 @@ body{
     margin-left: 45px;
     width: 300px;
     border-radius: 15px;
-    color: #0088cc;
     background-color: transparent;
     border-color: #0088cc;
     padding: 7px;
@@ -118,9 +120,9 @@ body{
     justify-content: center;
 }
 
-#uname_error, #pswd_error, #fname_error, #mail_error, #conpswd_error, #conform{
+.error{
     color: red;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: bold;
     visibility: hidden;
 }
@@ -153,7 +155,7 @@ body{
 }
 
 .content{
-    margin: 25px;
+    margin: 25px 90px;
 }
 
 .contentTop{
@@ -168,11 +170,13 @@ body{
 
 .download{
     padding-right: 10px;
+    cursor: pointer;
 }
 
 .userContent{
     background-color: white;
     padding: 15px;
+    max-height: 175px;
 }
 
 .loginuser{
@@ -182,7 +186,6 @@ body{
 .nameMain{
     font-size: 14px;
     text-align: center;
-    color: #0088cc;
     margin-bottom: 10px;
 }
 
@@ -192,6 +195,7 @@ body{
     background-color: #0088cc;
     border-radius: 20px;
     border-width: thin;
+    border: transparent;
     font-size: 10px;
     cursor: pointer;
 }
@@ -202,7 +206,6 @@ body{
 }
 
 .modalCreate{
-    color: #0088cc;
     font-size: 14px;
     text-align: center;
     font-weight: bold;
@@ -213,7 +216,6 @@ body{
     margin: 20px 45px 6px 30px;
     padding-bottom: 5px;
     border-bottom: 2px solid black;
-    color: #0088cc;
     font-weight: bold;
 }
 
@@ -221,7 +223,6 @@ body{
     font-size: 12px;
     font-weight: bold;
     padding-bottom: 10px;
-    color: #0088cc;
 }
 
 .formData{
@@ -243,3 +244,109 @@ body{
     margin-right: 27px;
 }
 
+.row2,.upload,.row3{
+    margin-top: 15px;
+}
+
+.gender{
+    width: 158px;
+    padding: 5px;
+    border-style: solid none solid none;
+    margin-right: 27px;
+}
+
+.date{
+    width: 160px; 
+    padding: 2px;
+    border-style: solid none solid none;
+    border-width: thin;
+    margin-right: 27px;
+}
+
+.file{
+    padding: 3px;
+    border-style: solid none solid none;
+    border-width: thin;
+    width: 200px;
+    font-size: 12px; 
+}
+
+.contdetails{
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid black;
+    font-weight: bold;
+}
+
+.createCont{
+    border-radius: 20px;
+    border: transparent;
+    font-size: 13px;
+    width: 180px;
+    margin:15px 0px 15px 85px;
+    padding: 5px;
+    background-color: skyblue;
+    cursor: pointer;
+}
+
+.modalimg{
+    width: 100px;
+    border-radius: 50px;
+}
+
+.imgwidth{
+    margin: 150px 30px;
+}
+
+.cancel{
+    text-decoration: none;
+}
+
+.contentList{
+    background-color: white;
+    width: 1015px;
+    margin-left: 25px;
+}
+
+.conttable{
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.conttr{
+    border-bottom: 1px solid #ddd;
+}
+
+.conttd{
+    padding: 15px;
+    column-width: 115px;
+    color: black;
+}
+
+.contth{
+    padding: 20px;
+    column-width: 115px;
+}
+
+.edit{
+    padding: 5px;
+    width: 80px;
+    border-radius: 20px;
+    cursor: pointer;
+    border-color: #0088cc;
+    border-width: thin;
+    background-color: white;
+}
+
+.edit:hover{
+    background-color: #0088cc;
+}
+
+.allAboutCreate{
+    margin: 25px;
+    width: 400px;
+    text-align: center;
+    background-color: skyblue;
+    padding: 5px;
+    font-weight: bold;
+}
