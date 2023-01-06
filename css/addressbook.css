@@ -233,13 +233,13 @@ body{
     width: 90px;
     padding: 5px;
     margin-right: 27px;
-    border-style: solid none solid none;
+    border-style: solid none;
 }
 
 .fname{
     width: 100px;
     padding: 4px;
-    border-style: solid none solid none;
+    border-style: solid none;
     border-width: thin;
     margin-right: 27px;
 }
@@ -251,21 +251,21 @@ body{
 .gender{
     width: 158px;
     padding: 5px;
-    border-style: solid none solid none;
+    border-style: solid none;
     margin-right: 27px;
 }
 
 .date{
     width: 160px; 
     padding: 2px;
-    border-style: solid none solid none;
+    border-style: solid none;
     border-width: thin;
     margin-right: 27px;
 }
 
 .file{
     padding: 3px;
-    border-style: solid none solid none;
+    border-style: solid none;
     border-width: thin;
     width: 200px;
     font-size: 12px; 

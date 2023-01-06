@@ -37,27 +37,36 @@
         <cfargument  name="state" type="any" default="#form.state#">
         <cfargument  name="number" type="any" default="#form.number#">
         <cfargument  name="mobile" type="any" default="#form.mobile#">
-        <cfquery name="contact">
-            INSERT INTO contactDtls
-            VALUES (
-                <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">,
-                <cfqueryparam value="#arguments.firstname#" cfsqltype="cf_sql_varchar">,
-                <cfqueryparam value="#arguments.lastname#" cfsqltype="cf_sql_varchar">,
-                <cfqueryparam value="#arguments.gender#" cfsqltype="cf_sql_varchar">,
-                <cfqueryparam value="#arguments.date#" cfsqltype="cf_sql_varchar">,
-                <cfqueryparam value="#arguments.address#" cfsqltype="cf_sql_varchar">,
-                <cfqueryparam value="#arguments.street#" cfsqltype="cf_sql_varchar">,
-                <cfqueryparam value="#arguments.city#" cfsqltype="cf_sql_varchar">,
-                <cfqueryparam value="#arguments.state#" cfsqltype="cf_sql_varchar">,
-                <cfqueryparam value="#arguments.number#" cfsqltype="cf_sql_varchar">,
-                <cfqueryparam value="#arguments.mobile#" cfsqltype="cf_sql_varchar">
-            )
+        <cfquery name="validate">
+            SELECT Email
+            FROM contactDtls
+            WHERE Email = <cfqueryparam value="#arguments.number#" cfsqltype="cf_sql_varchar">
         </cfquery>
+        <cfif validate.recordcount eq 0>
+            <cfquery name="contact">
+                INSERT INTO contactDtls
+                VALUES (
+                    <cfqueryparam value="#arguments.title#" cfsqltype="cf_sql_varchar">,
+                    <cfqueryparam value="#arguments.firstname#" cfsqltype="cf_sql_varchar">,
+                    <cfqueryparam value="#arguments.lastname#" cfsqltype="cf_sql_varchar">,
+                    <cfqueryparam value="#arguments.gender#" cfsqltype="cf_sql_varchar">,
+                    <cfqueryparam value="#arguments.date#" cfsqltype="cf_sql_varchar">,
+                    <cfqueryparam value="#arguments.address#" cfsqltype="cf_sql_varchar">,
+                    <cfqueryparam value="#arguments.street#" cfsqltype="cf_sql_varchar">,
+                    <cfqueryparam value="#arguments.city#" cfsqltype="cf_sql_varchar">,
+                    <cfqueryparam value="#arguments.state#" cfsqltype="cf_sql_varchar">,
+                    <cfqueryparam value="#arguments.number#" cfsqltype="cf_sql_varchar">,
+                    <cfqueryparam value="#arguments.mobile#" cfsqltype="cf_sql_varchar">
+                )
+            </cfquery>
+        <cfelse>
+            <cfreturn "This record is already exists!">
+        </cfif>
     </cffunction>
 
     <cffunction  name="getinsert" access="remote">
         <cfquery name="tableQuery">
-            SELECT FirstName,LastName,Email,MobileNumber
+            SELECT *
             FROM contactDtls;
         </cfquery>
         <cfreturn tableQuery>
@@ -66,8 +75,15 @@
     <cffunction  name="getData" access="remote" returnType="query">
         <cfquery name="aboutQuery">
             SELECT *
-            FROM contactDtls;
+            FROM contactDtls
+            WHERE FirstName = <cfqueryparam value="#arguments.name#" cfsqltype="cf_sql_varchar">
         </cfquery>
-        <cfreturn aboutQuery>
+        <cfif aboutQuery.recordcount neq 0>
+            <cfif aboutQuery.FirstName eq arguments.name>
+                <cfreturn aboutQuery>
+            </cfif>
+        <cfelse>
+            <cfreturn "Already Exists!">
+        </cfif>
     </cffunction>
 </cfcomponent>
