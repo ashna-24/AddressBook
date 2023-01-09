@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/addressbook.css"> 
+        <link rel="stylesheet" href="css/address.css"> 
     </head>
     <body>
         <cfoutput>
@@ -32,6 +32,9 @@
                         </form>
                         <cfif structKeyExists(form, 'submit')>
                             <cfinvoke method="getRegister" component="components/register">
+                            <!--- <cfset ormReload()>
+                            <cfset signupData= entityLoad(register)>
+                            <cfdump var="#entityLoad(register)#"> --->
                             <cfset structClear(form)>
                         </cfif>
                     </div>

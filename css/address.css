@@ -350,3 +350,84 @@ body{
     padding: 5px;
     font-weight: bold;
 }
+
+.pdf{
+    background-color: white;
+}
+
+.pdfdtl{
+    text-align: center;
+    color:cornflowerblue;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 10px 0px;
+}
+
+.pdftable{
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.pdflist{
+    font-size: 14px;
+    color: #0088cc;
+    padding: 5px;
+}
+
+.pdftr:nth-child(even){
+    background-color: #24c7c7;
+}
+
+.pdftd{
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.userImg{
+    padding-left: 30px;
+}
+
+.display{
+    padding-bottom: 10px;
+}
+
+.pdftdprnt{
+    padding: 10px 5px;
+    column-width: 70px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.viewTable{
+    margin-left: 30px;
+    font-size: 13px;
+}
+
+.viewtd{
+    color: #0088cc;
+    font-weight: bold;
+}
+
+.listdata{
+    padding-bottom: 10px;
+}
+
+.tddot{
+    padding-left: 20px;
+}
+
+.close{
+    background-color: white;
+    font-size: 14px;
+    border-color: #0088cc;
+    margin:20px 0px 0px 185px;
+    padding: 5px;
+    width: 80px;
+    border-radius: 20px;
+}
+
+.close:hover{
+    background-color: #0088cc;
+}

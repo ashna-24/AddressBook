@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/addressbook.css"> 
+        <link rel="stylesheet" href="css/address.css"> 
         <link rel="stylesheet" href="aassets/modal.css">
     </head>
     <body>
@@ -14,9 +14,9 @@
                 <div class="content">
                     <div class="contentTop">
                         <div class="contentImg flex">
-                            <img src="aassets/pdfimg.png" alt="Not found" class="download">
-                            <img src="aassets/excel.png" alt="Not found" class="download">
-                            <img src="aassets/print.png" alt="Not found" class="download">
+                            <a href="pdfdata.cfm"><img src="aassets/pdfimg.png" alt="Not found" class="download"></a>
+                            <a href="exceldata.cfm"><img src="aassets/excel.png" alt="Not found" class="download"></a>
+                            <a href="print.cfm"><img src="aassets/print.png" alt="Not found" class="download"></a>
                         </div>
                     </div>
 
@@ -56,13 +56,17 @@
                                     </tr>
                                     <cfloop query="tableQuery">
                                         <tr class="conttr">
-                                            <td class="conttd"></td>
+                                            <cfset userImg=tableQuery.Gender>
+                                            <td class="conttd"><img src="aassets/#userImg#.png" class="userImg"></td>
                                             <td class="conttd">#tableQuery.FirstName# #tableQuery.LastName#</td>
                                             <td class="conttd">#tableQuery.Email#</td>
                                             <td class="conttd">#tableQuery.MobileNumber#</td>
                                             <td class="conttd">
-                                                <!--- <cflocation url="edit.cfm?title=#tableQuery.Title#&fname=#tableQuery.FirstName#&lname=#tableQuery.LastName#&gender=#tableQuery.Gender#&DateOfBirth=#tableQuery.DateOfBirth#&Address=#tableQuery.Address#&Street=#tableQuery.Street#&City=#tableQuery.City#&State=#tableQuery.State#&Email=#tableQuery.Email#&MobileNumber=#tableQuery.MobileNumber#?file=main.cfm"> --->
-                                                <button class="edit" type="submit" onclick="document.getElementById('edit').style.display='block'">Edit</button>
+                                                <button class="edit" type="submit" onclick="document.getElementById('edit').style.display='block'">
+                                                    <a url="edit.cfm?title=#tableQuery.Title#&fname=#tableQuery.FirstName#&lname=#tableQuery.LastName#&gender=#tableQuery.Gender#&DateOfBirth=#tableQuery.DateOfBirth#&Address=#tableQuery.Address#&Street=#tableQuery.Street#&City=#tableQuery.City#&State=#tableQuery.State#&Email=#tableQuery.Email#&MobileNumber=#tableQuery.MobileNumber#">
+                                                        Edit
+                                                    </a>
+                                                </button>
                                                 <div id="edit" class="w3-modal">
                                                     <div class="w3-content w3-container w3-card" style="width: 700px; display:flex;">
                                                         <div class="w3-container" style="background-color:skyblue; display:flex;">
@@ -83,61 +87,25 @@
                                                 </a>
                                             </td>
                                             <td class="conttd">
-                                                <a href="view.cfm?name=#tableQuery.FirstName#">
-                                                <button class="edit" type="submit" onclick="document.getElementById('view').style.display='block'">View</button>
+                                                <cfset dataview="#tableQuery.FirstName#">
+                                                <!--- <a href="view.cfm?name=#tableQuery.FirstName#"> --->
+                                                <button class="edit" type="submit" onclick="document.getElementById('view').style.display='block'<!--- &viewdata('#dataview#') --->">
+                                                        View
+                                                </button>
+                                                    <!--- </a> --->
                                                 <div id="view" class="w3-modal">
                                                     <div class="w3-content w3-container w3-card" style="width: 700px; display:flex;">
                                                         <div class="w3-container" style="background-color:skyblue; display:flex;">
-                                                            <!--- <cfinclude template="view.cfm"> --->
-                                                            <!--- <div class="w3-container w3-white">
-                                                                <div class="allAbout">
-                                                                    <p class="allAboutCreate color">CONTACT DETAILS</p>
-                                                                </div>
-                                                                <div class="about">
-                                                                    <cfset dataArg=structNew()>
-                                                                    <cfset dataArg.name=tableQuery.FirstName>
-                                                                    <cfinvoke method="getData" component="components/register" returnVariable="aboutQuery" argumentCollection="#dataArg#">
-                                                                    
-                                                                    <table class="viewTable">
-                                                                        <tr class="viewtr">
-                                                                            <td class="viewtd">Name</td>
-                                                                            <td class="viewtd">:</td>
-                                                                            <td class="data">#aboutQuery.FirstName# #aboutQuery.LastName#</td>
-                                                                        </tr>
-                                                                        <tr class="viewtr">
-                                                                            <td class="viewtd">Gender</td>
-                                                                            <td class="viewtd">:</td>
-                                                                            <td class="data">#aboutQuery.Gender#</td>
-                                                                        </tr>
-                                                                        <tr class="viewtr">
-                                                                            <td class="viewtd">Date Of Birth</td>
-                                                                            <td class="viewtd">:</td>
-                                                                            <td class="data">#aboutQuery.DateOfBirth#</td>
-                                                                        </tr>
-                                                                        <tr class="viewtr">
-                                                                            <td class="viewtd">Address</td>
-                                                                            <td class="viewtd">:</td>
-                                                                            <td class="data">#aboutQuery.Address#,#aboutQuery.Street#,#aboutQuery.City#,#aboutQuery.State#</td>
-                                                                        </tr>
-                                                                        <tr class="viewtr">
-                                                                            <td class="viewtd">Email</td>
-                                                                            <td class="viewtd">:</td>
-                                                                            <td class="data">#aboutQuery.Email#</td>
-                                                                        </tr>
-                                                                        <tr class="viewtr">
-                                                                            <td class="viewtd">Phone Number</td>
-                                                                            <td class="viewtd">:</td>
-                                                                            <td class="data">#aboutQuery.MobileNumber#</td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </div>
-                                                            </div> --->
+                                                                <cfinclude template="view.cfm">
                                                             <div class="imgwidth">
                                                                 <img src="aassets/user.png" alt="Not found" class="modalimg">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </a>
+                                                </div>
+                                                <div class="message">
+                                                    <span id="pageMsg"></span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -149,6 +117,9 @@
                 </div>
             </cfif>
         </cfoutput>
+        <script src="assets/jquery.js"></script>
+        <script src="assets/jquery.min.js"></script>
+        <script src="js/view.js"></script>
         <script src="js/createcontact.js"></script>
     </body>
 </html>

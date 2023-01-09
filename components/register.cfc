@@ -72,18 +72,13 @@
         <cfreturn tableQuery>
     </cffunction>
 
-    <cffunction  name="getData" access="remote" returnType="query">
+    <cffunction  name="getData" access="remote" returnformat="plain">
+        <!--- <cfargument  name="fname" type="string" required="yes"> --->
         <cfquery name="aboutQuery">
             SELECT *
             FROM contactDtls
-            WHERE FirstName = <cfqueryparam value="#arguments.name#" cfsqltype="cf_sql_varchar">
+           
         </cfquery>
-        <cfif aboutQuery.recordcount neq 0>
-            <cfif aboutQuery.FirstName eq arguments.name>
-                <cfreturn aboutQuery>
-            </cfif>
-        <cfelse>
-            <cfreturn "Already Exists!">
-        </cfif>
+        <cfreturn aboutQuery>
     </cffunction>
 </cfcomponent>
