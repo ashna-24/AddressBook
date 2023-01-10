@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/address.css"> 
+        <link rel="stylesheet" href="css/addressbook.css"> 
         <link rel="stylesheet" href="aassets/modal.css">
     </head>
     <body>
@@ -16,7 +16,7 @@
                         <div class="contentImg flex">
                             <a href="pdfdata.cfm"><img src="aassets/pdfimg.png" alt="Not found" class="download"></a>
                             <a href="exceldata.cfm"><img src="aassets/excel.png" alt="Not found" class="download"></a>
-                            <a href="print.cfm"><img src="aassets/print.png" alt="Not found" class="download"></a>
+                            <a onclick="printSection()"><img src="aassets/print.png" alt="Not found" class="download"></a>
                         </div>
                     </div>
 
@@ -25,7 +25,7 @@
                             <img src="aassets/user.png" alt="Not found" class="loginuser">
                             <div class="nameMain color">
                                 <cfinvoke method="getName" component="components/register" returnVariable="result">
-                                #result.FullName#
+                                #result.FullName# 
                             </div>
                             <div class="createContact">
                                 <button type="submit" name="create" class="create" onclick="document.getElementById('create').style.display='block'" class="w3-button">CREATE CONTACT</button>
@@ -56,16 +56,23 @@
                                     </tr>
                                     <cfloop query="tableQuery">
                                         <tr class="conttr">
-                                            <cfset userImg=tableQuery.Gender>
-                                            <td class="conttd"><img src="aassets/#userImg#.png" class="userImg"></td>
+                                            <cfset local.userImg=tableQuery.Gender>
+                                            <td class="conttd"><img src="aassets/#local.userImg#.png" class="userImg"></td>
                                             <td class="conttd">#tableQuery.FirstName# #tableQuery.LastName#</td>
                                             <td class="conttd">#tableQuery.Email#</td>
                                             <td class="conttd">#tableQuery.MobileNumber#</td>
                                             <td class="conttd">
+                                                <cfset session.fname = tableQuery.FirstName>
+                                                <cfset session.lname = tableQuery.LastName>
+                                                <cfset session.dob = tableQuery.DateOfBirth>
+                                                <cfset session.address = tableQuery.Address>
+                                                <cfset session.street = tableQuery.Street>
+                                                <cfset session.city = tableQuery.City>
+                                                <cfset session.state = tableQuery.State>
+                                                <cfset session.email = tableQuery.Email>
+                                                <cfset session.phone = tableQuery.MobileNumber>
                                                 <button class="edit" type="submit" onclick="document.getElementById('edit').style.display='block'">
-                                                    <a url="edit.cfm?title=#tableQuery.Title#&fname=#tableQuery.FirstName#&lname=#tableQuery.LastName#&gender=#tableQuery.Gender#&DateOfBirth=#tableQuery.DateOfBirth#&Address=#tableQuery.Address#&Street=#tableQuery.Street#&City=#tableQuery.City#&State=#tableQuery.State#&Email=#tableQuery.Email#&MobileNumber=#tableQuery.MobileNumber#">
-                                                        Edit
-                                                    </a>
+                                                    Edit
                                                 </button>
                                                 <div id="edit" class="w3-modal">
                                                     <div class="w3-content w3-container w3-card" style="width: 700px; display:flex;">
@@ -87,22 +94,21 @@
                                                 </a>
                                             </td>
                                             <td class="conttd">
-                                                <cfset dataview="#tableQuery.FirstName#">
-                                                <!--- <a href="view.cfm?name=#tableQuery.FirstName#"> --->
-                                                <button class="edit" type="submit" onclick="document.getElementById('view').style.display='block'<!--- &viewdata('#dataview#') --->">
-                                                        View
+                                                <cfset dataview=tableQuery.FirstName>
+                                                <!--- <a href="view.cfm?name=#tableQuery.FirstName#" onclick="viewdata('#dataview#')"> --->
+                                                <button class="edit" type="submit" onclick="viewdata("#tableQuery.Email#")<!--- document.getElementById('view').style.display='block' --->">
+                                                    View
                                                 </button>
-                                                    <!--- </a> --->
+                                                            <!--- <cfdump  var="#session.dataview#"> --->
                                                 <div id="view" class="w3-modal">
                                                     <div class="w3-content w3-container w3-card" style="width: 700px; display:flex;">
                                                         <div class="w3-container" style="background-color:skyblue; display:flex;">
-                                                                <cfinclude template="view.cfm">
+                                                            <cfinclude template="view.cfm">
                                                             <div class="imgwidth">
                                                                 <img src="aassets/user.png" alt="Not found" class="modalimg">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </a>
                                                 </div>
                                                 <div class="message">
                                                     <span id="pageMsg"></span>
@@ -115,11 +121,33 @@
                         </div>
                     </div>
                 </div>
+                <div id="print">
+                    <h3 class="printdtl">Detailed List</h3>
+                    <cfinvoke method="getinsert" component="components/register" returnVariable="tableQuery">
+                    <table class="printtable">
+                        <tr class="printtr">
+                            <th></th>
+                            <th class="printlist">Name</th>
+                            <th class="printlist">Email ID</th>
+                            <th class="printlist">Phone Number</th>
+                        </tr>
+                        <cfloop query="tableQuery">
+                            <tr class="printtr">
+                                <cfset userImg=tableQuery.Gender>
+                                <td><img src="aassets/#userImg#.png" class="userImg display"></td>
+                                <td class="printtd">#tableQuery.FirstName# #tableQuery.LastName#</td>
+                                <td class="printtd">#tableQuery.Email#</td>
+                                <td class="printtd">#tableQuery.MobileNumber#</td>
+                            </tr>
+                        </cfloop>
+                    </table>
+                </div>
             </cfif>
         </cfoutput>
-        <script src="assets/jquery.js"></script>
-        <script src="assets/jquery.min.js"></script>
+        <script src="aassets/jquery.js"></script>
+        <script src="aassets/jquery.min.js"></script>
         <script src="js/view.js"></script>
         <script src="js/createcontact.js"></script>
+        <script src="js/print.js"></script>
     </body>
 </html>

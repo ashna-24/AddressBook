@@ -5,7 +5,7 @@
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="css/address.css"> 
+            <link rel="stylesheet" href="css/addressbook.css"> 
         </head>
         <body class="pdf">
             <cfoutput>
@@ -20,8 +20,8 @@
                     </tr>
                     <cfloop query="tableQuery">
                         <tr class="pdftr">
-                            <cfset userImg=tableQuery.Gender>
-                            <td><img src="aassets/#userImg#.png" class="userImg display"></td>
+                            <cfset local.userImg=tableQuery.Gender>
+                            <td><img src="aassets/#local.userImg#.png" class="userImg display"></td>
                             <td class="pdftd">#tableQuery.FirstName# #tableQuery.LastName#</td>
                             <td class="pdftd">#tableQuery.Email#</td>
                             <td class="pdftd">#tableQuery.MobileNumber#</td>

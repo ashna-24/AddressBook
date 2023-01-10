@@ -375,10 +375,6 @@ body{
     padding: 5px;
 }
 
-.pdftr:nth-child(even){
-    background-color: #24c7c7;
-}
-
 .pdftd{
     padding: 10px;
     text-align: center;
@@ -430,4 +426,20 @@ body{
 
 .close:hover{
     background-color: #0088cc;
+}
+
+#print{
+    visibility: hidden;
+}
+
+.printdtl{
+    text-align: center;
+}
+
+.printtable{
+    margin-left: 30px;
+}
+
+.printtr{
+    padding: 10px 0px;
 }

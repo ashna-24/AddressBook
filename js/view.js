@@ -1,14 +1,13 @@
-function viewdata(message){
+function viewdata(){
     $.ajax({
-        url:'components/register.cfc?method=getData',
+        url:'components/view.cfc?method=getData',
         type:'post',
         data:{
-            method:"getData",
-            Email: message,
-            dataType:"text"
+            Name: $("#fname").val()
         },
+        datatype:"JSON",
         success:function(data){
-            $("#pageMsg").text(data);
+            alert(data);
         }
     }) 
 }

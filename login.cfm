@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/address.css"> 
+        <link rel="stylesheet" href="css/addressbook.css"> 
     </head>
     <body>
         <cfoutput>
@@ -25,8 +25,6 @@
                         </form>
                         <cfif structKeyExists(form,'submit')>
                             <cfinvoke method="getlogin" component="components/login">
-                            <!--- <cfset ormReload()>
-                            <cfset loginData= entityLoad(login)> --->
                             <cfset structClear(form)>
                         </cfif>
                         <p class="optional">Or Sign In Using</p>
@@ -34,7 +32,7 @@
                             <img src="aassets/facebook.jpg" alt="Not found" class="linkimg">
                             <img src="aassets/Gimg.png" alt="Not found" class="linkimg">
                         </div>
-                        <p class="optional">Don't have an account?<a href="">Register Here</a></p>
+                        <p class="optional">Don't have an account?<a href="signup.cfm">Register Here</a></p>
                     </div> 
                 </div>
             </div>

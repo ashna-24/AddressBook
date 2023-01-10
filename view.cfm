@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/address.css"> 
+        <link rel="stylesheet" href="css/addressbook.css"> 
     </head>
     <body>
         <cfoutput>
@@ -12,10 +12,11 @@
                     <p class="allAboutCreate color">CONTACT DETAILS</p>
                 </div>
                 <div class="about">
-                    <!--- <cfset dataArg=structNew()>
-                    <cfset dataArg.name = url.name> --->
-                    <cfinvoke method="getData" component="components/register" returnVariable="aboutQuery" <!--- argumentCollection="#dataArg#" --->>
-                    <!--- <cfif url.name eq aboutQuery.FirstName> --->
+                    <cfset dataArg=structNew()>
+                    <cfset dataArg.name = session.dataview>
+                    <cfinvoke method="getData" component="components/view" returnVariable="aboutQuery" argumentCollection="#dataArg#">
+                    <cfif structKeyExists(session, 'viewflag')>
+                    <!--- <cfdump  var="#aboutQuery.FirstName#"> --->
                     <table class="viewTable">
                         <tr class="viewtr">
                             <td class="viewtd listdata">Name</td>
@@ -48,6 +49,7 @@
                             <td class="data listdata">#aboutQuery.MobileNumber#</td>
                         </tr>
                     </table>
+                    </cfif>
                 </div>
                 <a href="main.cfm"><input type="submit" value="Close" name="close" class="close"></a>
             </div>
