@@ -63,15 +63,7 @@
                                             <td class="conttd">#tableQuery.MobileNumber#</td>
                                             <td class="conttd">
                                                 <cfset session.fname = tableQuery.FirstName>
-                                                <cfset session.lname = tableQuery.LastName>
-                                                <cfset session.dob = tableQuery.DateOfBirth>
-                                                <cfset session.address = tableQuery.Address>
-                                                <cfset session.street = tableQuery.Street>
-                                                <cfset session.city = tableQuery.City>
-                                                <cfset session.state = tableQuery.State>
-                                                <cfset session.email = tableQuery.Email>
-                                                <cfset session.phone = tableQuery.MobileNumber>
-                                                <button class="edit" type="submit" onclick="document.getElementById('edit').style.display='block'">
+                                                <button class="edit" type="submit" onclick="document.getElementById('edit').style.display='block'; editData('#session.fname#')">
                                                     Edit
                                                 </button>
                                                 <div id="edit" class="w3-modal">
@@ -94,12 +86,10 @@
                                                 </a>
                                             </td>
                                             <td class="conttd">
-                                                <cfset dataview=tableQuery.FirstName>
-                                                <!--- <a href="view.cfm?name=#tableQuery.FirstName#" onclick="viewdata('#dataview#')"> --->
-                                                <button class="edit" type="submit" onclick="viewdata("#tableQuery.Email#")<!--- document.getElementById('view').style.display='block' --->">
+                                                <cfset session.dataview=tableQuery.FirstName>
+                                                <button class="edit" type="submit" id="viewSubmit" onclick="document.getElementById('view').style.display='block'; viewData('#session.dataview#')">
                                                     View
                                                 </button>
-                                                            <!--- <cfdump  var="#session.dataview#"> --->
                                                 <div id="view" class="w3-modal">
                                                     <div class="w3-content w3-container w3-card" style="width: 700px; display:flex;">
                                                         <div class="w3-container" style="background-color:skyblue; display:flex;">
@@ -142,11 +132,14 @@
                         </cfloop>
                     </table>
                 </div>
+            <cfelse>
+                <cflocation  url="login.cfm" addtoken="no">
             </cfif>
         </cfoutput>
         <script src="aassets/jquery.js"></script>
         <script src="aassets/jquery.min.js"></script>
-        <script src="js/view.js"></script>
+        <script src="js/viewdata.js"></script>
+        <script src="js/editdata.js"></script>
         <script src="js/createcontact.js"></script>
         <script src="js/print.js"></script>
     </body>

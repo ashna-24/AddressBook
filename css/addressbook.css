@@ -84,6 +84,8 @@ body{
 
 .signlink{
     text-decoration: none;
+    background-color: transparent;
+    border: none;
     color: white;
 }
 
@@ -278,14 +280,14 @@ body{
     font-weight: bold;
 }
 
-.createCont{
-    border-radius: 20px;
-    border: transparent;
-    font-size: 13px;
-    width: 180px;
-    margin:15px 0px 15px 85px;
+.editSubmit{
     padding: 5px;
-    background-color: skyblue;
+    text-decoration: none;
+    font-size: 14px;
+    color: #0088cc;
+    margin-left: 147px;
+    border: 2px solid #0088cc;
+    border-radius: 20px;
     cursor: pointer;
 }
 
@@ -442,4 +444,8 @@ body{
 
 .printtr{
     padding: 10px 0px;
+}
+
+.bottom {
+    margin-top: 20px;
 }

@@ -64,33 +64,12 @@
         </cfif>
     </cffunction>
 
-    <cffunction  name="getEditdata" access="remote">
-        <cfquery name="validateEdit">
-            UPDATE contactDtls
-            SET FirstName = <cfqueryparam value="#form.firstname#" cfsqltype="cf_sql_varchar">,
-                LastName = <cfqueryparam value="#arguments.lastname#" cfsqltype="cf_sql_varchar">,
-                Gender =  <cfqueryparam value="#arguments.gender#" cfsqltype="cf_sql_varchar">,
-                Address = <cfqueryparam value="#arguments.address#" cfsqltype="cf_sql_varchar">,
-                Street = <cfqueryparam value="#arguments.street#" cfsqltype="cf_sql_varchar">,
-                City = <cfqueryparam value="#arguments.city#" cfsqltype="cf_sql_varchar">,
-                State = <cfqueryparam value="#arguments.state#" cfsqltype="cf_sql_varchar">,
-                Email = <cfqueryparam value="#arguments.number#" cfsqltype="cf_sql_varchar">,
-                MobieNumber = <cfqueryparam value="#arguments.mobile#" cfsqltype="cf_sql_varchar">
-            WHERE Email = <cfqueryparam value="#arguments.number#" cfsqltype="cf_sql_varchar">
-        </cfquery>
-    </cffunction>
-
     <cffunction  name="getinsert" access="remote">
         <cfquery name="tableQuery">
             SELECT *
             FROM contactDtls
             ORDER BY FirstName;
         </cfquery>
-        <!--- <cfif tableQuery.recordcount eq 0>
-            <cfset session.viewflag = 1> --->
-        <!--- <cfelse>
-            <cflocation  url="main.cfm" addtoken="no"> --->
-        <!--- </cfif> --->
-            <cfreturn tableQuery>
+        <cfreturn tableQuery>
     </cffunction>
 </cfcomponent>

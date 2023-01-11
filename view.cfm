@@ -12,44 +12,38 @@
                     <p class="allAboutCreate color">CONTACT DETAILS</p>
                 </div>
                 <div class="about">
-                    <cfset dataArg=structNew()>
-                    <cfset dataArg.name = session.dataview>
-                    <cfinvoke method="getData" component="components/view" returnVariable="aboutQuery" argumentCollection="#dataArg#">
-                    <cfif structKeyExists(session, 'viewflag')>
-                    <!--- <cfdump  var="#aboutQuery.FirstName#"> --->
                     <table class="viewTable">
                         <tr class="viewtr">
                             <td class="viewtd listdata">Name</td>
                             <td class="viewtd listdata tddot">:</td>
-                            <td class="data listdata">#aboutQuery.FirstName# #aboutQuery.LastName#</td>
+                            <td class="data listdata"> <span id="viewid"></span> <span id="viewlne"></span></td>
                         </tr>
                         <tr class="viewtr">
                             <td class="viewtd listdata">Gender</td>
                             <td class="viewtd listdata tddot">:</td>
-                            <td class="data listdata">#aboutQuery.Gender#</td>
+                            <td class="data listdata"> <span id="viewGndr"></span></td>
                         </tr>
                         <tr class="viewtr">
                             <td class="viewtd listdata">Date Of Birth</td>
                             <td class="viewtd listdata tddot">:</td>
-                            <td class="data listdata">#aboutQuery.DateOfBirth#</td>
+                            <td class="data listdata"> <span id="viewdob"></span></td>
                         </tr>
                         <tr class="viewtr">
                             <td class="viewtd listdata">Address</td>
                             <td class="viewtd listdata tddot">:</td>
-                            <td class="data listdata">#aboutQuery.Address#,#aboutQuery.Street#,#aboutQuery.City#,#aboutQuery.State#</td>
+                            <td class="data listdata"> <span id="viewadd"></span> <span id="viewsrt"></span> <span id="viewcty"></span> <span id="viewste"></span></td>
                         </tr>
                         <tr class="viewtr">
                             <td class="viewtd listdata">Email</td>
                             <td class="viewtd listdata tddot">:</td>
-                            <td class="data listdata">#aboutQuery.Email#</td>
+                            <td class="data listdata"> <span id="viewmail"></span></td>
                         </tr>
                         <tr class="viewtr">
                             <td class="viewtd listdata">Phone Number</td>
                             <td class="viewtd listdata tddot">:</td>
-                            <td class="data listdata">#aboutQuery.MobileNumber#</td>
+                            <td class="data listdata"> <span id="viewnum"></span></td>
                         </tr>
-                    </table>
-                    </cfif>
+                     </table>
                 </div>
                 <a href="main.cfm"><input type="submit" value="Close" name="close" class="close"></a>
             </div>

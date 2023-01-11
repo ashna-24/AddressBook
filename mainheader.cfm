@@ -22,7 +22,10 @@
                             <img src="aassets/logout.png" alt="Not found" class="loginimg">
                         </div>
                         <div class="signmsg">
-                            <a href="login.cfm" class="signlink">Logout</a>
+                            <form method="post" name="logout">
+                                <input type="submit" value="Logout" name="submit" id="submit" class="signlink">
+                            </form>
+                            <cfinvoke method="getlogout" component="components/logout">
                         </div>
                     </div>
                 </div>
