@@ -8,7 +8,8 @@ create table register(FullName varchar(30),
 
 select * from register
 
-create table contactDtls(Title varchar(10),
+create table contactDtls(ID int IDENTITY(101, 1) PRIMARY KEY, 
+						 Title varchar(10),
 						 FirstName varchar(20),
 						 LastName varchar(20),
 						 Gender varchar(10),
@@ -19,5 +20,5 @@ create table contactDtls(Title varchar(10),
 						 State varchar(30),
 						 Email varchar(30),
 						 MobileNumber varchar(20));
-drop table contactDtls
+
 select * from contactDtls

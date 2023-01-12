@@ -6,8 +6,6 @@
             FROM contactDtls
             WHERE FirstName = <cfqueryparam value="#arguments.Email#" cfsqltype="cf_sql_varchar">
         </cfquery>
-        <cfreturn aboutQuery>
-        <cfdump  var="#aboutQuery#" abort> 
         <cfset local.viewQuery=structNew()>
         <cfset local.viewQuery.FirstName = aboutQuery.FirstName>
         <cfset local.viewQuery.LastName = aboutQuery.LastName>

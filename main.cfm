@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/addressbook.css"> 
+        <link rel="stylesheet" href="css/address.css"> 
         <link rel="stylesheet" href="aassets/modal.css">
     </head>
     <body>
@@ -28,9 +28,10 @@
                                 #result.FullName# 
                             </div>
                             <div class="createContact">
-                                <button type="submit" name="create" class="create" onclick="document.getElementById('create').style.display='block'" class="w3-button">CREATE CONTACT</button>
+                                <button type="submit" name="create" class="create" onclick="document.getElementById('create').style.display='block'">CREATE CONTACT</button>
                                 <div id="create" class="w3-modal">
                                     <div class="w3-content w3-container w3-card" style="width: 700px; display:flex;">
+                                        <span onclick="document.getElementById('create').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                                         <div class="w3-container" style="background-color:skyblue; display:flex;">
                                             <cfinclude template="create.cfm">
                                             <div class="imgwidth">
@@ -55,8 +56,8 @@
                                         <th class="contth"></th>
                                     </tr>
                                     <cfloop query="tableQuery">
+                                        <cfset local.userImg=tableQuery.Gender>
                                         <tr class="conttr">
-                                            <cfset local.userImg=tableQuery.Gender>
                                             <td class="conttd"><img src="aassets/#local.userImg#.png" class="userImg"></td>
                                             <td class="conttd">#tableQuery.FirstName# #tableQuery.LastName#</td>
                                             <td class="conttd">#tableQuery.Email#</td>
@@ -68,10 +69,11 @@
                                                 </button>
                                                 <div id="edit" class="w3-modal">
                                                     <div class="w3-content w3-container w3-card" style="width: 700px; display:flex;">
+                                                        <span onclick="document.getElementById('edit').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                                                         <div class="w3-container" style="background-color:skyblue; display:flex;">
                                                             <cfinclude  template="edit.cfm">
                                                             <div class="imgwidth">
-                                                                <img src="aassets/user.png" alt="Not found" class="modalimg">
+                                                                <img src="aassets/user.png" alt="Not found" class="edtviwimg">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -92,10 +94,11 @@
                                                 </button>
                                                 <div id="view" class="w3-modal">
                                                     <div class="w3-content w3-container w3-card" style="width: 700px; display:flex;">
+                                                        <span onclick="document.getElementById('view').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                                                         <div class="w3-container" style="background-color:skyblue; display:flex;">
                                                             <cfinclude template="view.cfm">
                                                             <div class="imgwidth">
-                                                                <img src="aassets/user.png" alt="Not found" class="modalimg">
+                                                                <img src="aassets/user.png" alt="Not found" class="edtviwimg">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -123,8 +126,8 @@
                         </tr>
                         <cfloop query="tableQuery">
                             <tr class="printtr">
-                                <cfset userImg=tableQuery.Gender>
-                                <td><img src="aassets/#userImg#.png" class="userImg display"></td>
+                                <cfset local.userImg=tableQuery.Gender>
+                                <td><img src="aassets/#local.userImg#.png" class="userImg display"></td>
                                 <td class="printtd">#tableQuery.FirstName# #tableQuery.LastName#</td>
                                 <td class="printtd">#tableQuery.Email#</td>
                                 <td class="printtd">#tableQuery.MobileNumber#</td>
@@ -138,8 +141,8 @@
         </cfoutput>
         <script src="aassets/jquery.js"></script>
         <script src="aassets/jquery.min.js"></script>
-        <script src="js/viewdata.js"></script>
-        <script src="js/editdata.js"></script>
+        <script src="js/view.js"></script>
+        <script src="js/edit.js"></script>
         <script src="js/createcontact.js"></script>
         <script src="js/print.js"></script>
     </body>

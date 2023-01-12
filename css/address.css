@@ -84,6 +84,7 @@ body{
 
 .signlink{
     text-decoration: none;
+    cursor: pointer;
     background-color: transparent;
     border: none;
     color: white;
@@ -328,6 +329,11 @@ body{
 .contth{
     padding: 20px;
     column-width: 115px;
+}
+
+.edtviwimg{
+    width: 70px;
+    border-radius: 35px;
 }
 
 .edit{
