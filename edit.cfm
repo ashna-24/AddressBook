@@ -102,8 +102,8 @@
                                     </div>
                                 </div>
                                 <div class="bottom">
-                                    <a href="main.cfm" class="editSubmit" name="formsubmit" onclick="updateData()">
-                                        Submit
+                                    <a href="main.cfm" onclick="updateData()">
+                                        <input type="submit" value="Submit" name="close" class="editclose">
                                     </a>
                                 </div>
                             </form>

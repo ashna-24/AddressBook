@@ -1,29 +1,29 @@
 function validatecreate(){
-    var select= document.getElementById('select');
-    var first= document.getElementById('first');
-    var last= document.getElementById('last');
-    var gender= document.getElementById('gender');
-    var date= document.getElementById('date');
-    var file= document.getElementById('file');
-    var address= document.getElementById('address');
-    var street= document.getElementById('street');
-    var city= document.getElementById('city');
-    var state= document.getElementById('state');
-    var number= document.getElementById('number');
-    var mobile= document.getElementById('mobile');
+    var select = document.getElementById('select');
+    var first = document.getElementById('first');
+    var last = document.getElementById('last');
+    var gender = document.getElementById('gender');
+    var date = document.getElementById('date');
+    var file = document.getElementById('file');
+    var address = document.getElementById('address');
+    var street = document.getElementById('street');
+    var city = document.getElementById('city');
+    var state = document.getElementById('state');
+    var number = document.getElementById('number');
+    var mobile = document.getElementById('mobile');
 
     var selectvalidate = validateselect(select);
-    var firstvalidate= validatefirst(first);
+    var firstvalidate = validatefirst(first);
     var lastvalidate = validatelast(last);
-    var gendervalidate= validategender(gender);
-    var datevalidate= validatedate(date);
-    var filevalidate= validatefile(file);
-    var addressvalidate= validateaddress(address);
-    var streetvalidate= validatestreet(street);
-    var cityvalidate= validatecity(city);
-    var statevalidate= validatestate(state);
-    var numbervalidate= validatenumber(number);
-    var mobilevalidate= validatemobile(mobile);
+    var gendervalidate = validategender(gender);
+    var datevalidate = validatedate(date);
+    var filevalidate = validatefile(file);
+    var addressvalidate = validateaddress(address);
+    var streetvalidate = validatestreet(street);
+    var cityvalidate = validatecity(city);
+    var statevalidate = validatestate(state);
+    var numbervalidate = validatenumber(number);
+    var mobilevalidate = validatemobile(mobile);
 
     if(selectvalidate && firstvalidate && lastvalidate && gendervalidate && datevalidate && filevalidate && addressvalidate && streetvalidate && cityvalidate && statevalidate && numbervalidate && mobilevalidate)
         return true;

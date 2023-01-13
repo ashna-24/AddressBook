@@ -1,17 +1,17 @@
 <cfcomponent>
-    <cffunction  name="getUpdate" access="remote" returnType="struct" returnFormat="json">
+    <cffunction name="getUpdate" access="remote" returnType="struct" returnFormat="json">
         <cfargument name="contactid" type="numeric" required="yes">
-        <cfargument  name="title" type="string" required="yes">
-        <cfargument  name="firstname" type="string" required="yes">
-        <cfargument  name="Lastname" type="string" required="yes">
-        <cfargument  name="gender" type="string" required="yes">
-        <cfargument  name="dob" type="string" required="yes">
-        <cfargument  name="address" type="string" required="yes">
-        <cfargument  name="street" type="string" required="yes">
-        <cfargument  name="city" type="string" required="yes">
-        <cfargument  name="state" type="string" required="yes">
-        <cfargument  name="mail" type="string" required="yes">
-        <cfargument  name="phone" type="string" required="yes">
+        <cfargument name="title" type="string" required="yes">
+        <cfargument name="firstname" type="string" required="yes">
+        <cfargument name="Lastname" type="string" required="yes">
+        <cfargument name="gender" type="string" required="yes">
+        <cfargument name="dob" type="string" required="yes">
+        <cfargument name="address" type="string" required="yes">
+        <cfargument name="street" type="string" required="yes">
+        <cfargument name="city" type="string" required="yes">
+        <cfargument name="state" type="string" required="yes">
+        <cfargument name="mail" type="string" required="yes">
+        <cfargument name="phone" type="string" required="yes">
         <cfquery name="updateQuery">
             UPDATE contactDtls
             SET 
@@ -26,11 +26,7 @@
                 State = <cfqueryparam value="#arguments.state#" cfsqltype="cf_sql_varchar">,
                 Email = <cfqueryparam value="#arguments.mail#" cfsqltype="cf_sql_varchar">,
                 MobileNumber = <cfqueryparam value="#arguments.phone#" cfsqltype="cf_sql_varchar">
-            WHERE ID = <cfqueryparam value="#arguments.contactid#" cfsqltype="CF_SQL_INTEGER">
+            WHERE ID = <cfqueryparam value="#arguments.contactid#" cfsqltype="cf_sql_integer">
         </cfquery>
-        <cfdump  var="#arguments#" abort>
-        <!--- <cfset local.cntQuery=structNew()>
-        <cfset local.cntQuery.Title = validateEdit.Title>
-        <cfreturn cntQuery> --->
     </cffunction>
 </cfcomponent>    

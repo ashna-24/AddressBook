@@ -17,14 +17,14 @@
                     </div>
                     <div class="form_login">
                         <p class="logintext color">LOGIN</p>
-                        <form action="" method="post" name="myform" class="myform" onsubmit="return validateform()">
+                        <form action="" method="post" name="myform" class="myform" onsubmit="return validatelogin()">
                             <input type="text" name="uname" class="text" placeholder="Username" id="uname" onblur="validateform()"><br>
                             <span id="uname_error" class="error">Please fill this field!</span>
                             <input type="password" name="password" class="text" placeholder="Password" id="pswd" onblur="validateform()"><br>
                             <span id="pswd_error" class="error">Please fill this field!</span>
-                            <input type="submit" value="LOGIN" name="submit" class="submit color">
+                            <input type="submit" value="LOGIN" name="login" class="submit color">
                         </form>
-                        <cfif structKeyExists(form,'submit')>
+                        <cfif structKeyExists(form,'login')>
                             <cfinvoke method="getlogin" component="components/login">
                             <cfset structClear(form)>
                         </cfif>
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </cfoutput>
-        <script src="js/addressbook.js"></script>
+        <script src="js/login.js"></script>
         <script src="aassets/googlesignin.js"></script>     
     </body>
 </html>

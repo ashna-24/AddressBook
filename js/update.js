@@ -19,8 +19,8 @@ function updateData(message){
             phone: $('#viewmobile').val(),
             datatype: 'json'
         },
-        /* success: function(){
+        success: function(){
             alert("Successfully updated");
-        } */
+        }
     })
 }

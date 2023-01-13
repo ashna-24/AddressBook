@@ -1,7 +1,7 @@
 <cfcomponent>
     <cffunction  name="getlogin" access="remote">
-        <cfargument  name="username" type="any" default="#form.uname#">
-        <cfargument  name="password" type="any" default="#form.password#">
+        <cfargument name="username" type="any" default="#form.uname#">
+        <cfargument name="password" type="any" default="#form.password#">
         <cfquery name="addlogin">
             SELECT UserName, Password
             FROM register

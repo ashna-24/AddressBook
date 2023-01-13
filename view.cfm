@@ -45,7 +45,9 @@
                         </tr>
                      </table>
                 </div>
-                <a href="main.cfm"><input type="submit" value="Close" name="close" class="close"></a>
+                <a href="main.cfm">
+                    <input type="submit" value="Close" name="close" class="close">
+                </a>
             </div>
         </cfoutput>
     </body>

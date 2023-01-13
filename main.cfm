@@ -14,9 +14,15 @@
                 <div class="content">
                     <div class="contentTop">
                         <div class="contentImg flex">
-                            <a href="pdfdata.cfm"><img src="aassets/pdfimg.png" alt="Not found" class="download"></a>
-                            <a href="exceldata.cfm"><img src="aassets/excel.png" alt="Not found" class="download"></a>
-                            <a onclick="printSection()"><img src="aassets/print.png" alt="Not found" class="download"></a>
+                            <a href="pdfdata.cfm">
+                                <img src="aassets/pdfimg.png" alt="Not found" class="download">
+                            </a>
+                            <a href="exceldata.cfm">
+                                <img src="aassets/excel.png" alt="Not found" class="download">
+                            </a>
+                            <a onclick="printSection()">
+                                <img src="aassets/print.png" alt="Not found" class="download">
+                            </a>
                         </div>
                     </div>
 
@@ -25,7 +31,7 @@
                             <img src="aassets/user.png" alt="Not found" class="loginuser">
                             <div class="nameMain color">
                                 <cfinvoke method="getName" component="components/register" returnVariable="result">
-                                #result.FullName# 
+                                #result.FullName#
                             </div>
                             <div class="createContact">
                                 <button type="submit" name="create" class="create" onclick="document.getElementById('create').style.display='block'">CREATE CONTACT</button>
@@ -58,7 +64,9 @@
                                     <cfloop query="tableQuery">
                                         <cfset local.userImg=tableQuery.Gender>
                                         <tr class="conttr">
-                                            <td class="conttd"><img src="aassets/#local.userImg#.png" class="userImg"></td>
+                                            <td class="conttd">
+                                                <img src="aassets/#local.userImg#.png" class="userImg">
+                                            </td>
                                             <td class="conttd">#tableQuery.FirstName# #tableQuery.LastName#</td>
                                             <td class="conttd">#tableQuery.Email#</td>
                                             <td class="conttd">#tableQuery.MobileNumber#</td>
@@ -78,7 +86,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                               
                                             </td>
                                             <td class="conttd">
                                                 <a href="components/delete.cfc?method=deletepage&name=#tableQuery.FirstName#">
@@ -103,12 +110,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="message">
-                                                    <span id="pageMsg"></span>
-                                                </div>
                                             </td>
                                         </tr>
-                                     </cfloop>
+                                    </cfloop>
                                 </table>
                             </div>
                         </div>

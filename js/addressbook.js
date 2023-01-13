@@ -1,17 +1,15 @@
 function validateform(){
-    var uname= document.getElementById('uname');
-    var pswd= document.getElementById('pswd');
-    var fname= document.getElementById('fname');
-    var mail= document.getElementById('mail');
-    var conpswd= document.getElementById('conpswd');
+    var uname = document.getElementById('uname');
+    var pswd = document.getElementById('pswd');
+    var fname = document.getElementById('fname');
+    var mail = document.getElementById('mail');
+    var conpswd = document.getElementById('conpswd');
     
-
     var unamevalidate = validateuname(uname);
     var pswdvalidate = validatepswd(pswd);
     var fnamevalidate = validatefname(fname);
-    var mailvalidate= validatemail(mail);
+    var mailvalidate = validatemail(mail);
     var conpswdvalidate = validateconpswd(conpswd);
-    
     
     if(unamevalidate && pswdvalidate && fnamevalidate && mailvalidate &&conpswdvalidate)
         return true;

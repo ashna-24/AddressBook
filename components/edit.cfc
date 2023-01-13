@@ -19,6 +19,6 @@
         <cfset local.editvaldt.State = editvalidate.State>
         <cfset local.editvaldt.Email = editvalidate.Email>
         <cfset local.editvaldt.MobileNumber = editvalidate.MobileNumber>
-        <cfreturn editvaldt>
+        <cfreturn local.editvaldt>
     </cffunction>
 </cfcomponent>

@@ -91,12 +91,12 @@
                                 <div class="row3 flex">
                                     <div class="address">
                                         <p class="psnlmsg color">Email*</p>
-                                        <input type="text" name="createnumber" class="date" id="number" onblur="validatecreate()" value="">
+                                        <input type="text" name="createnumber" class="date" id="number" onblur="validatecreate()" value="" maxlength="20">
                                         <span id="phone_error" class="error">Required*</span>
                                     </div>
                                     <div class="street">
                                         <p class="psnlmsg color">Mobile Number*</p>
-                                        <input type="number" name="createmobile" class="date" id="mobile" onblur="validatecreate()" value="">
+                                        <input type="number" name="createmobile" class="date" id="mobile" onblur="validatecreate()" value="" maxlength="10">
                                         <span id="num_error" class="error">Required*</span>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                     </div>
                 </div>
             <cfelse>
-                <cflocation url="../login.cfm">
+                <cflocation url="login.cfm" addtoken="no">
             </cfif>
             <script src="js/createcontact.js"></script>
         </cfoutput>

@@ -186,12 +186,6 @@ body{
     margin: 0px 0px 10px 10px;
 }
 
-.nameMain{
-    font-size: 14px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
 .create{
     padding: 3px;
     color: white;
@@ -230,6 +224,13 @@ body{
 
 .formData{
     margin: 20px 45px 6px 30px; 
+}
+
+.nameMain{
+    color: #0088cc;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .select{ 
@@ -347,6 +348,20 @@ body{
 }
 
 .edit:hover{
+    background-color: #0088cc;
+}
+
+.editclose{
+    background-color: white;
+    font-size: 14px;
+    border-color: #0088cc;
+    margin:15px 0px 0px 145px;
+    padding: 5px;
+    width: 80px;
+    border-radius: 20px;
+}
+
+.editclose:hover{
     background-color: #0088cc;
 }
 

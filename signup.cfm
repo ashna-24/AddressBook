@@ -28,10 +28,10 @@
                             <input type="password" name="conpswd" class="text" placeholder="Conform Password" id="conpswd" onblur="validateform()"><br>
                             <span id="conpswd_error" class="error">Please fill this field!</span>
                             <span id="conform" class="error">Password did not match: Please try again...</span>
-                            <input type="submit" value="REGISTER" name="submit" class="submit">
+                            <input type="submit" value="REGISTER" name="register" class="submit">
                         </form>
-                        <cfif structKeyExists(form, 'submit')>
-                            <cfinvoke method="getRegister" component="components/register">
+                        <cfif structKeyExists(form, 'register')>
+                            <cfinvoke method="getRegister" component="components/insert">
                             <cfset structClear(form)>
                         </cfif>
                     </div>
