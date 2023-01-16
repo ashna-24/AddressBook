@@ -8,7 +8,6 @@
     <body>
         <cfoutput>
             <cfinclude  template="header.cfm">
-
             <div class="main">
                 <div class="form flex">
                     <div class="signupSide">
@@ -17,6 +16,11 @@
                     <div class="form_login">
                         <p class="logintext">REGISTER</p>
                         <form action="" method="post" name="myform" onsubmit="return validateform()">
+                            <input type="hidden" name="fname_cfformrequired" value="You must enter a Fullname.">
+                            <input type="hidden" name="mail_cfformrequired" value="You must enter a MailId.">
+                            <input type="hidden" name="uname_cfformrequired" value="You must enter a Username.">
+                            <input type="hidden" name="password_cfformrequired" value="You must enter a Password.">
+                            <input type="hidden" name="conpswd_cfformrequired" value="You must enter a Conform Password.">
                             <input type="text" name="fname" class="text" placeholder="Full Name" id="fname" onblur="validateform()"></br>
                             <span id="fname_error" class="error">Please fill this field!</span>
                             <input type="email" name="mail" class="text" placeholder="Email ID" id="mail" onblur="validateform()"></br>

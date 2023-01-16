@@ -9,7 +9,6 @@
     <body>
         <cfoutput>
             <cfinclude  template="header.cfm">
-
             <div class="main">
                 <div class="form flex">
                     <div class="formSide">
@@ -18,6 +17,8 @@
                     <div class="form_login">
                         <p class="logintext color">LOGIN</p>
                         <form action="" method="post" name="myform" class="myform" onsubmit="return validatelogin()">
+                            <input type="hidden" name="uname_cfformrequired" value="You must enter a Username.">
+                            <input type="hidden" name="password_cfformrequired" value="You must enter a Password.">
                             <input type="text" name="uname" class="text" placeholder="Username" id="uname" onblur="validateform()"><br>
                             <span id="uname_error" class="error">Please fill this field!</span>
                             <input type="password" name="password" class="text" placeholder="Password" id="pswd" onblur="validateform()"><br>

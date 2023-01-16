@@ -111,7 +111,7 @@
                     </div>
                 </div>
             <cfelse>
-                <cflocation url="login.cfm" addtoken="no">
+                <cflocation url="../login.cfm" addtoken="no">
             </cfif>
         </cfoutput>
         <script src="aassets/jquery.js"></script>

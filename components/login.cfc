@@ -15,6 +15,7 @@
             <cflocation  url="main.cfm" addtoken="No">
         <cfelse>
             <cflocation  url="login.cfm" addtoken="No">
+            <cfreturn "Invalid Username or Password!!">
             <cfset structClear(session)>
         </cfif>
     </cffunction>

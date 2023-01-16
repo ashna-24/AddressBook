@@ -10,7 +10,6 @@
         <cfoutput>
             <cfif structKeyExists(session,'userflag')>
                 <cfinclude template="mainheader.cfm">
-
                 <div class="content">
                     <div class="contentTop">
                         <div class="contentImg flex">
@@ -25,7 +24,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="contentMain flex">
                         <div class="userContent">
                             <img src="aassets/user.png" alt="Not found" class="loginuser">
@@ -105,6 +103,7 @@
                                                         <div class="w3-container" style="background-color:skyblue; display:flex;">
                                                             <cfinclude template="view.cfm">
                                                             <div class="imgwidth">
+                                                                <cfset local.userImg=tableQuery.Gender>
                                                                 <img src="aassets/user.png" alt="Not found" class="edtviwimg">
                                                             </div>
                                                         </div>
@@ -140,7 +139,7 @@
                     </table>
                 </div>
             <cfelse>
-                <cflocation  url="login.cfm" addtoken="no">
+                <cflocation  url="../login.cfm" addtoken="no">
             </cfif>
         </cfoutput>
         <script src="aassets/jquery.js"></script>
