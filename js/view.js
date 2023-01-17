@@ -13,6 +13,7 @@ function viewData(message){
             $('#viewlne').html(obj.LASTNAME);
             $('#viewGndr').html(obj.GENDER);
             $('#viewdob').html(obj.DOB);
+            $('#viewfile').html(obj.FILEUPLOAD);
             $('#viewadd').html(obj.ADDRESS);
             $('#viewsrt').html(obj.STREET);
             $('#viewcty').html(obj.CITY);

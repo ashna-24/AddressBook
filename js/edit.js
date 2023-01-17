@@ -15,6 +15,7 @@ function editData(message){
             $('#viewlast').val(obj.LASTNAME);
             $('#viewgender').val(obj.GENDER);
             $('#viewdate').val(obj.DOB);
+            $('#viewfile').val(obj.FILEUPLOAD);
             $('#viewaddress').val(obj.ADDRESS);
             $('#viewstreet').val(obj.STREET);
             $('#viewcity').val(obj.CITY);

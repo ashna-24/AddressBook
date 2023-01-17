@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="upload">
                                     <p class="psnlmsg color">Upload Photo</p>
-                                    <input type="file" name="editfile" class="file" id="file">
+                                    <input type="file" name="editfile" class="file" id="viewfile" value="">
                                     <span id="file_error" class="error">Required*</span>
                                 </div>
                                 <div class="details">

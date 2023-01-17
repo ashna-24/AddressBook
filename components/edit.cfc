@@ -13,6 +13,7 @@
         <cfset local.editvaldt.LastName = editvalidate.LastName>
         <cfset local.editvaldt.Gender = editvalidate.Gender>
         <cfset local.editvaldt.DOB = editvalidate.DateOfBirth>
+        <cfset local.editvaldt.FileUpload = editvalidate.FileUpload>
         <cfset local.editvaldt.Address = editvalidate.Address>
         <cfset local.editvaldt.Street = editvalidate.Street>
         <cfset local.editvaldt.City = editvalidate.City>

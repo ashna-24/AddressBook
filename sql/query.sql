@@ -14,11 +14,12 @@ create table contactDtls(ID int IDENTITY(101, 1) PRIMARY KEY,
 						 LastName varchar(20),
 						 Gender varchar(10),
 						 DateOfBirth varchar(30),
+						 FileUpload varchar(100),
 						 Address varchar(20),
 						 Street varchar(20),
 						 City varchar(20),
 						 State varchar(30),
 						 Email varchar(30),
 						 MobileNumber varchar(20));
-
+drop table contactDtls
 select * from contactDtls
